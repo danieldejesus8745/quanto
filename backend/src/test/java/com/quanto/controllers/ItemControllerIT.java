@@ -19,13 +19,13 @@ class ItemControllerIT {
 
     @Test
     void mustAddProduct() throws Exception {
-        mockMvc.perform(post("/api/v1/products")
+        mockMvc.perform(post("/api/v1/itens")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"description\": \"Test description\"," +
-                                "    \"brand\": \"Test brand\"," +
-                                "    \"type\": \"unit\"," +
-                                "    \"price\": 15.45" +
-                                "}"))
+                        .content("{\"item\": \"Test item\", " +
+                                "\"brand\": \"Test brand\", " +
+                                "\"local\": \"Test local\", " +
+                                "\"price\": 15.45, " +
+                                "\"type\": \"unit\"}"))
                 .andExpect(status().isCreated());
     }
 
