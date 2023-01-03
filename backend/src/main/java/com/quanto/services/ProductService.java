@@ -16,6 +16,7 @@ public class ProductService {
         Product product = new Product();
         product.setDescription(productDTO.getDescription());
         product.setBrand(productDTO.getBrand());
+        product.setLocal(productDTO.getLocal());
         product.setType(productDTO.getType());
         product.setPrice(productDTO.getPrice());
 

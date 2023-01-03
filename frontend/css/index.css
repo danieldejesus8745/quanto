@@ -1,0 +1,70 @@
+:root {
+  --color-one: #BAE6EC;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  text-align: center;
+  background-color: var(--color-one);
+  padding: 50px 0;
+}
+
+header > button {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: 180px;
+  cursor: pointer;
+  outline: none;
+  transition: all .3s;
+  font-size: 12pt;
+}
+
+header > button:hover {
+  background-color: #343434;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+input {
+  padding: 15px;
+  outline: none;
+  font-size: 12pt;
+  transition: all .3s;
+  border: 2px solid #d3d3d3;
+  border-radius: 50px;
+  width: 800px;
+  max-width: 800px;
+}
+
+input:focus {
+  border: 2px solid var(--color-one)
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  padding: 17px;
+}
+
+.btn:focus {
+  border: none;
+}
+
+.btn:hover {
+  background-color: #eee;
+}

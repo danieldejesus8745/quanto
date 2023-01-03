@@ -20,6 +20,8 @@ public class Product {
     private String description;
     @Column(length = 50)
     private String brand;
+    @Column(length = 20)
+    private String local;
     @Column(length = 5)
     private String type;
     private double price;

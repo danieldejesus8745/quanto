@@ -15,6 +15,7 @@ public class ProductDTO {
     private Integer id;
     private String description;
     private String brand;
+    private String local;
     private String type;
     private double price;
 
