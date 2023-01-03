@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Messages {
 
-    MESSAGE_1("Produto adicionado com sucesso");
+    MESSAGE_1("Item adicionado com sucesso");
 
     private final String description;
 

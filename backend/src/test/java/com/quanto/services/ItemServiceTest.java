@@ -1,27 +1,24 @@
 package com.quanto.services;
 
-import com.quanto.dto.ProductDTO;
-import com.quanto.repositories.ProductRepository;
-import org.assertj.core.api.Assertions;
+import com.quanto.dto.ItemDTO;
+import com.quanto.repositories.ItemRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-class ProductServiceTest {
+class ItemServiceTest {
 
     @InjectMocks
-    private ProductService productService;
+    private ItemService itemService;
 
     @Mock
-    private ProductRepository productRepository;
+    private ItemRepository itemRepository;
 
     @BeforeEach
     void setUp() {
@@ -30,8 +27,8 @@ class ProductServiceTest {
 
     @Test
     void mustAddProduct() {
-        productService.addProduct(new ProductDTO());
-        verify(productRepository, times(1)).save(any());
+        itemService.addItem(new ItemDTO());
+        verify(itemRepository, times(1)).save(any());
     }
 
 }

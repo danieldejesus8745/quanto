@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quanto | Compre com o melhor preço</title>
+    <link rel="stylesheet" href="sass/general.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
@@ -12,15 +13,41 @@
     <header>
       <h1>Quanto</h1>
       <p>Comparação de preços</p>
-      <button>Adicionar Produto</button>
+      <button class="button btn-add-item" id="btn-add-item">Adicionar Item</button>
     </header>
 
-    <main>
-      <form>
-        <input type="text" id="name" placeholder="Digite o nome do produto" required autocomplete="off" />
-        <input type="submit" class="btn" value="Buscar" />
-      </form>
-    </main>
+    <div class="modal" id="modal-add-item">
+      <div class="modal-in mondal-in-add-item">
+        <h2>Adicionar Item</h2>
+        <form class="form-add-item" id="form-add-item">
+          <input class="input input-add-item" id="item" type="text" placeholder="Item" required autocomplete="off" />
+          <input class="input input-add-item" id="brand" type="text" placeholder="Marca" required autocomplete="off" />
+          <input class="input input-add-item" id="local" type="text" placeholder="Local" required autocomplete="off" />
+          <input class="input input-add-item" id="price" type="text" placeholder="Preço" required autocomplete="off" />
+          <div class="type">
+            <span>
+              <input id="unit" type="radio" name="type" />
+              <label for="unit">Unidade</label>
+            </span>
+            <span>
+              <input id="kg" type="radio" name="type" />
+              <label for="kg">Kg</label>
+            </span>
+          </div>
+          <input class="input btn-form btn-add" type="submit" value="Adicionar" />
+          <input class="input btn-form btn-reset" id="btn-reset" type="reset" value="Cancelar" />
+        </form>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#price').mask('#.##0,00', {reverse: true})
+      })
+    </script>
 
   </body>
 </html>

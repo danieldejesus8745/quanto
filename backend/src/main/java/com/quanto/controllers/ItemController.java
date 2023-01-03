@@ -1,7 +1,7 @@
 package com.quanto.controllers;
 
-import com.quanto.dto.ProductDTO;
-import com.quanto.services.ProductService;
+import com.quanto.dto.ItemDTO;
+import com.quanto.services.ItemService;
 import com.quanto.utils.Messages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "api/v1/products")
-public class ProductController {
+@RequestMapping(path = "api/v1/itens")
+public class ItemController {
 
-    private final ProductService productService;
+    private final ItemService itemService;
 
     @PostMapping
-    public ResponseEntity<String> addProduct(@RequestBody ProductDTO productDTO) {
-        productService.addProduct(productDTO);
+    public ResponseEntity<String> addItem(@RequestBody ItemDTO itemDTO) {
+        itemService.addItem(itemDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(Messages.MESSAGE_1.getDescription());
     }
 
