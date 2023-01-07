@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum Messages {
 
     MESSAGE_1("Item adicionado com sucesso"),
-    MESSAGE_2("Produto já cadastrado");
+    MESSAGE_2("Item já adicionado anteriormente");
 
     private final String description;
 

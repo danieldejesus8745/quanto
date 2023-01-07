@@ -60,14 +60,15 @@ function addItem(item) {
   })
   .then(response => {
     if (response.status === 409) {
-      alert("Esse produto já foi adicionado anteriormente");
+      response.text().then(response => alert(response));
     } else {
-      confirmItemAddition();
+      response.text().then(response => confirmItemAddition(response));
     }
   });
 }
 
-function confirmItemAddition() {
+function confirmItemAddition(message) {
   toast.style.display = 'flex';
+  toast.textContent = message;
   setTimeout(() => toast.style.display = 'none', 3000);
 }
