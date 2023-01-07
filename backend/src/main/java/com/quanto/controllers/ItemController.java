@@ -20,7 +20,12 @@ public class ItemController {
 
     @PostMapping
     public ResponseEntity<String> addItem(@RequestBody ItemDTO itemDTO) {
-        itemService.addItem(itemDTO);
+        try {
+            itemService.addItem(itemDTO);
+        } catch (IllegalStateException exception) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
+        }
+
         return ResponseEntity.status(HttpStatus.CREATED).body(Messages.MESSAGE_1.getDescription());
     }
 

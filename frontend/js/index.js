@@ -3,6 +3,7 @@ const modalAddItem = document.getElementById('modal-add-item');
 const btnReset = document.getElementById('btn-reset');
 const formAddItem = document.getElementById('form-add-item');
 const url = 'http://localhost:1001/api/v1/itens';
+const toast = document.getElementById('toast');
 
 btnAddItem.addEventListener('click', () => {
   modalAddItem.style.display = 'flex';
@@ -30,18 +31,6 @@ function getType(e) {
   }
 }
 
-function addItem(item) {
-  fetch (url, {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    body: JSON.stringify(item)
-  })
-  .then(response => response.text())
-  .then(response => console.log(response));
-}
-
 formAddItem.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -60,3 +49,25 @@ formAddItem.addEventListener('submit', e => {
     alert('Selecione se "Unidade" ou "Kg"');
   }
 });
+
+function addItem(item) {
+  fetch (url, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(item)
+  })
+  .then(response => {
+    if (response.status === 409) {
+      alert("Esse produto já foi adicionado anteriormente");
+    } else {
+      confirmItemAddition();
+    }
+  });
+}
+
+function confirmItemAddition() {
+  toast.style.display = 'flex';
+  setTimeout(() => toast.style.display = 'none', 3000);
+}
